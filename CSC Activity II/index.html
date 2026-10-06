@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Box Model Activity</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative; 
+            width: 600px;
+            height: 600px;
+        }
+
+        .box {
+            position: absolute; 
+            box-sizing: border-box;
+        }
+
+        .box1 {
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 280px;
+            background-color: #5F9EA0;
+            color: white;
+            font-size: 15px;
+            line-height: 1.4;
+            padding: 20px;
+            border: 10px solid black;
+            z-index: 2;
+        }
+
+        .box1 p {
+            margin: 0;
+        }
+
+        .box2 {
+            top: 280px;
+            left: 280px;
+            width: 260px;
+            height: 260px;
+            background-color: #FFD700;
+            border-top: 20px solid black;
+            border-bottom: 20px solid black;
+            border-left: 10px solid black;
+            border-right: 10px solid black;
+            z-index: 1;
+        }
+
+        .box3 {
+            top: 540px;
+            left: 40px;
+            width: 240px;
+            height: 240px;
+            background-color: #CD5C5C;
+            border: 10px solid black;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="box box1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at sapien porttitor urna elementum lacinia. In id magna pulvinar, ultricies lorem id, vehicula elit. Aliquam eu luctus nisl, vitae pellentesque magna. Phasellus dolor metus, laoreet ac convallis sit amet, efficitur sed dolor.</p>
+        </div>
+        
+        <div class="box box2"></div>
+        
+        <div class="box box3"></div>
+        
+    </div>
+
+</body>
+</html>
