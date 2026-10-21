@@ -7,6 +7,32 @@
     <title>LMS | University of Sri Jayewardenepura</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root[data-theme="dark"] {
+            color-scheme: dark;
+        }
+
+        :root[data-theme="dark"] body,
+        :root[data-theme="dark"] .card,
+        :root[data-theme="dark"] .modal-content {
+            color: #f8f9fa;
+            background-color: #212529;
+        }
+
+        :root[data-theme="dark"] .bg-light,
+        :root[data-theme="dark"] .bg-secondary-subtle {
+            color: #f8f9fa !important;
+            background-color: #343a40 !important;
+        }
+
+        :root[data-theme="dark"] .text-secondary {
+            color: #adb5bd !important;
+        }
+
+        :root[data-theme="dark"] .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+    </style>
 </head>
 
 <body class="min-vh-100">
@@ -16,7 +42,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5 py-3">
 
             <a class="navbar-brand fs-4" href="#home">
-                Learning Management System<br>
+                LMS <br>
                 <span class="fs-5">University of Sri Jayewardenepura</span>
             </a>
 
@@ -39,6 +65,11 @@
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
+                <button id="theme-toggle" class="btn btn-outline-light ms-lg-3 mt-3 mt-lg-0" type="button"
+                    aria-pressed="false">
+                    <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+                    <span id="theme-toggle-label">Dark mode</span>
+                </button>
             </div>
 
         </nav>
@@ -48,11 +79,18 @@
             <section id="home" class="bg-light text-center py-5 px-3">
                 <div class="container py-4">
                     <h1 class="display-4 fw-bold">
-                        <span id="greeting"></span> Welcome to the Learning Management System
+                        <span id="greeting"></span> Welcome to our LMS!
                     </h1>
 
                     <p class="fs-4 mt-3">
-                        Learn, explore, and achieve your academic goals with us.
+                        Explore your courses, access learning materials, complete activities,
+                        and track your progress—all in one place. We’re glad you’re here and wish
+                        you success in your learning journey.
+                    </p>
+
+                    <p class="fs-6 mt-4 mb-0">
+                        <span aria-hidden="true">🗓️</span>
+                        <time id="current-datetime" aria-label="Current date and time"></time>
                     </p>
 
                     <a href="#courses" class="btn btn-primary btn-lg mt-3">
@@ -118,7 +156,8 @@
                                 <p class="card-text fs-5">
                                     Learn to build modern, responsive websites using HTML, CSS, and JavaScript.
                                 </p>
-                                <a href="#contact" class="btn btn-primary">Learn More</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#webDevelopmentModal">Learn More</button>
                             </div>
                         </div>
                     </div>
@@ -134,7 +173,8 @@
                                 <p class="card-text fs-5">
                                     Master data analysis, visualization, and machine learning techniques.
                                 </p>
-                                <a href="#contact" class="btn btn-primary">Learn More</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#dataScienceModal">Learn More</button>
                             </div>
                         </div>
                     </div>
@@ -150,7 +190,8 @@
                                 <p class="card-text fs-5">
                                     Understand SEO, social media marketing, and online branding strategies.
                                 </p>
-                                <a href="#contact" class="btn btn-primary">Learn More</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#digitalMarketingModal">Learn More</button>
                             </div>
                         </div>
                     </div>
@@ -158,7 +199,82 @@
                 </div>
             </section>
 
-            <section id="contact" class="text-center py-5 px-3">
+            <div class="modal fade" id="webDevelopmentModal" tabindex="-1" aria-labelledby="webDevelopmentModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title fs-4" id="webDevelopmentModalLabel">💻 Web Development</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Learn how websites are planned, built, and brought to life in a browser. Start with the
+                                foundations, then put them together in responsive pages of your own.</p>
+                            <h3 class="fs-6 fw-bold">Explore topics like</h3>
+                            <ul class="mb-0">
+                                <li>HTML structure and accessible content</li>
+                                <li>CSS styling, layouts, and responsive design</li>
+                                <li>JavaScript fundamentals and interactivity</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="dataScienceModal" tabindex="-1" aria-labelledby="dataScienceModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title fs-4" id="dataScienceModalLabel">📊 Data Science</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Discover how to turn raw data into useful insights. Practice asking questions, exploring
+                                datasets, and communicating what the results mean.</p>
+                            <h3 class="fs-6 fw-bold">Explore topics like</h3>
+                            <ul class="mb-0">
+                                <li>Data preparation and exploratory analysis</li>
+                                <li>Charts, visualization, and communicating findings</li>
+                                <li>Introduction to statistics and machine learning</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="digitalMarketingModal" tabindex="-1"
+                aria-labelledby="digitalMarketingModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title fs-4" id="digitalMarketingModalLabel">📣 Digital Marketing</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Learn how organizations reach and engage audiences online. Explore practical ways to
+                                build a digital presence and measure how well a campaign is working.</p>
+                            <h3 class="fs-6 fw-bold">Explore topics like</h3>
+                            <ul class="mb-0">
+                                <li>Search engine optimization (SEO)</li>
+                                <li>Social media and content strategy</li>
+                                <li>Online branding and campaign analytics</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="contact" class="contact-section text-center py-5 px-3">
                 <h2 class="fw-bold">Contact Us</h2>
                 <p class="fs-5 mt-3">
                     University of Sri Jayewardenepura
@@ -177,14 +293,14 @@
             <p class="mb-2">
                 © 2026 LMS Platform. All Rights Reserved.
             </p>
-            <a href="#privacy" class="text-white me-3">Privacy Policy</a>
-            <a href="#terms" class="text-white">Terms of Service</a>
+            <a href="#privacy" class="me-3">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
         </footer>
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="test.js"></script>
+    <script src="java.js"></script>
 
 </body>
 
